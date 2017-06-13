@@ -64,7 +64,6 @@ User::User(string T,string P, string N, string L, int A) {
 	location = L;
 	age = A;
 	password = P;
-}
 //protypes for functions
 void fillVec(vector<User> &userVec);
 void print(vector<User> &userVec);
@@ -111,7 +110,7 @@ void fillVec(vector<User> &userVec) {
 	cout << "Password: ";
 	getline(cin, password);
 	cin.ignore();
-	if (password.length() < 5) {
+	if (password.size() < 5) {//quick fix, 6/13
 		cout << "*****Password to small.....********" << endl;
 		cout << "Please enter Valid Password,Must be at least 5 characters long" << endl;
 		getline(cin, password);
@@ -120,7 +119,7 @@ void fillVec(vector<User> &userVec) {
 	cout << "Please re-enter password:";
 		getline(cin, password2);
 		cin.ignore();
-	 if (password==password2) {//For some reason i am having an issue with line(Tried != and still puts out wrong value 
+	 if (password.compare(password2)) {//For some reason i am having an issue with line(Tried != and still puts out wrong value(FIXED!) 
 		 cout << "Match!";
 	}
 	 else {
